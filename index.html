@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サイコロ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="explainscreen">
+        <h1 id="gamename">ダイスビルド・ヨット</h1>
+        <button id="start-button">ゲーム開始</button>
+        <div class="explaincontainer">
+            <p id="explaintitle">＜ルール説明＞</p>
+            <br>
+            <p class="explain">５つのダイスを振り、完成した手役を元にスコアを計算します</p>
+            <p class="explain">獲得スコアがステージの目標スコアを超えるとステージクリアになります</p>
+            <p class="explain">リロール及びスコア計算は、１ステージあたりそれぞれ３回ずつ可能です</p>
+            <p class="explain">ステージクリア時に、スコア計算の残り回数に応じてコインを獲得でき　ステージクリア後、コインを消費してダイスや手役の強化を行えます</p>
+            <br>
+            <p class="explain">ダイスの強化には、目の変更と面の強化があります</p>
+            <p class="explain">目の変更は：ダイスの数字変更　　面の強化：青と赤の２種類（青：数値に＋１５　　赤：倍率に＋２）</p>
+            <br>
+            <p class="explain">採用されている手役は以下の７つです</p>
+            <p class="explain">ヨット　４ダイス　フルハウス　３ダイス　Lストレート　Sストレート　チョイス</p>
+            <br>
+            <p class="explain">目標スコアは５ステージ毎に大きく上昇します</p>
+            <p class="explain">ゴールは存在しません　どこまでクリアできるか挑戦してみてください</p>
+            <br>
+            <p class="explain-mini">※　スコアの計算は手役の数値と倍率にダイスの数値と倍率を加算した後それぞれを掛けたものになります</p>
+            <p class="explain-mini">また、手役に関係ないダイスでも選択すればスコアに含まれます</p>
+            <br>
+            <p class="explain-mini">ショートカットキーの説明</p>
+            <p class="explain-mini">１～５：ダイス選択　A：リロール　S：スコア計算　Rダイス選択全解除</p>
+        </div>
+    </div>
+
+    <div id="playscreen">
+        <p id="stagename">ステージ名</p>
+        <div class="play-window">
+            <div class="scorecheck-area">
+                <div class="scorecheckcontainer">
+                    <div class="Targetbox">
+                        <p class="TargetText">目標スコア</p>
+                        <p class="Target">150</p>
+                    </div>
+                    <div class="Totalbox">
+                        <p class="TotalText">現在のスコア</p>
+                        <p class="Total">0</p>
+                    </div>
+                </div>
+
+                <div class="timescontainer">
+                    <div class="rerolltimesbox">
+                        <p class="timestext">リロール</p>
+                        <p class="rerolltimes">0</p>
+                    </div>
+                    <div class="scoretimesbox">
+                        <p class="timestext">スコア</p>
+                        <p class="scoretimes">0</p>
+                    </div>
+                </div>
+
+                <div class="levelcontainer">
+                    <div class="labelbox">
+                        <p id="categolylabel">hand</p>
+                        <p id="levellabel">Lv</p>
+                        <p id="scorelabel">score</p>
+                        <p id="Xinlabel">X</p>
+                        <p id="multlabel">mult</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">ヨット</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">50</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">5</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">４ダイス</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">30</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">4</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">フルハウス</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">25</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">3</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">３ダイス</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">15</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">2</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">Lスト</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">40</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">4</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">Sスト</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">30</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">3</p>
+                    </div>
+                    <div class="levelbox">
+                        <p class="handname">チョイス</p>
+                        <p class="handlevel">1</p>
+                        <p class="handscore">5</p>
+                        <p class="Xinhand">X</p>
+                        <p class="handmult">1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diceroll-area">
+                <div class="scorecontainer">
+                    <div id="totalscore">
+                        <p id="score-">S</p>
+                        <p id="total-">X</p>
+                        <p id="mult-">M</p>
+                    </div>
+                    <div class="scorebox">
+                        <div class="dicescore">
+                            <p class="score--">s</p>
+                            <p class="mult--">m</p>
+                        </div>
+                        <div class="dicescore">
+                            <p class="score--">s</p>
+                            <p class="mult--">m</p>
+                        </div>
+                        <div class="dicescore">
+                            <p class="score--">s</p>
+                            <p class="mult--">m</p>
+                        </div>
+                        <div class="dicescore">
+                            <p class="score--">s</p>
+                            <p class="mult--">m</p>
+                        </div>
+                        <div class="dicescore">
+                            <p class="score--">s</p>
+                            <p class="mult--">m</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dice-container">
+                    <div class="dice-box">
+                        <img class="dice" src="img/d1.png" alt="サイコロA">
+                        <!--<button class="lock-button">ロック</button>-->
+                    </div>
+                    <div class="dice-box">
+                        <img class="dice" src="img/d1.png" alt="サイコロB">
+                        <!--<button class="lock-button">ロック</button>-->
+                    </div>
+                    <div class="dice-box">
+                        <img class="dice" src="img/d1.png" alt="サイコロC">
+                        <!--<button class="lock-button">ロック</button>-->
+                    </div>
+                    <div class="dice-box">
+                        <img class="dice" src="img/d1.png" alt="サイコロD">
+                        <!--<button class="lock-button">ロック</button>-->
+                    </div>
+                    <div class="dice-box">
+                        <img class="dice" src="img/d1.png" alt="サイコロE">
+                        <!--<button class="lock-button">ロック</button>-->
+                    </div>
+                </div>
+
+                <br>
+                <div class="button-box">
+                    <button id="rollButton">リロール</button>
+                    <button id="scoreButton">スコア</button>
+                </div>
+
+                <button id="OK">OK</button>
+                <button id="retry">リトライ</button>
+                <button id="quit">やめる</button>
+
+                <p id="result">手役</p>
+            </div>
+
+            <div class="upgrade-area">
+                <button id="skipbutton">強化終了</button>
+                <div class="upgradecontainer">
+                    <div class="diceUGbox">
+                        <p class="packnamed">ダイス強化</p>
+                        <div class="pack">
+                            <img class="dicepack" src="img/pack_Color.png" alt="面強化パック">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">3</p>
+                            </div>
+                        </div>
+                        <div class="pack">
+                            <img class="dicepack" src="img/pack_Number.png" alt="数変化パック">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">3</p>
+                            </div>
+                        </div>
+                        <div class="pack">
+                            <img class="sidepack" src="img/d1.png" alt="面交換">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="handUGbox">
+                        <p class="packnameh">ハンド強化</p>
+                        <div class="pack">
+                            <img class="handpack" src="img/pack_3hands.png" alt="役３パック">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">3</p>
+                            </div>
+                        </div>
+                        <div class="pack">
+                            <img class="handpack" src="img/pack_5hands.png" alt="役５パック">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">5</p>
+                            </div>
+                        </div>
+                        <div class="pack">
+                            <img class="ticketpack" src="img/d1.png" alt="役強化">
+                            <div class="pricetag">
+                                <button class="buy">購入</button>
+                                <p class="price">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="openpackcontainer">
+                    <p class="textinpack">強化するダイスを選んでください</p>
+                    <div class="dicepackbox">
+                        <img class="diceinpack" src="img/d1.png" alt="サイコロ">
+                        <img class="diceinpack" src="img/d1.png" alt="サイコロ">
+                        <img class="diceinpack" src="img/d1.png" alt="サイコロ">
+                        <img class="diceinpack" src="img/d1.png" alt="サイコロ">
+                        <img class="diceinpack" src="img/d1.png" alt="サイコロ">
+                    </div>
+                    <div class="ticketpackbox">
+                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                    </div>
+                    <div class="buttoninpackbox">
+                        <button class="skippackbutton">スキップ</button>
+                        <img class="buffimg" src="img/d1.png" alt="強化法">
+                        <div class="bufftextset">
+                            <p class="buffscore">+</p>
+                            <p class="buffmult">+</p>
+                        </div>
+                        <button class="decidebutton">決定</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailcheck-area">
+                <div class="coinbox">
+                    <p class="cointext">コイン</p>
+                    <p class="coinnum">5</p>
+                </div>
+                <div class="diceviewcontainer">
+                    <div class="diceviewbox">
+                        <div class="sidesetA">
+                            <img class="diceside" src="img/d1.png" alt="1面">
+                            <img class="diceside" src="img/d2.png" alt="2面">
+                            <img class="diceside" src="img/d3.png" alt="3面">
+                        </div>
+                        <div class="sidesetB">
+                            <img class="diceside" src="img/d4.png" alt="4面">
+                            <img class="diceside" src="img/d5.png" alt="5面">
+                            <img class="diceside" src="img/d6.png" alt="6面">
+                        </div>
+                    </div>
+                    <div class="diceviewbox">
+                        <div class="sidesetA">
+                            <img class="diceside" src="img/d1.png" alt="1面">
+                            <img class="diceside" src="img/d2.png" alt="2面">
+                            <img class="diceside" src="img/d3.png" alt="3面">
+                        </div>
+                        <div class="sidesetB">
+                            <img class="diceside" src="img/d4.png" alt="4面">
+                            <img class="diceside" src="img/d5.png" alt="5面">
+                            <img class="diceside" src="img/d6.png" alt="6面">
+                        </div>
+                    </div>
+                    <div class="diceviewbox">
+                        <div class="sidesetA">
+                            <img class="diceside" src="img/d1.png" alt="1面">
+                            <img class="diceside" src="img/d2.png" alt="2面">
+                            <img class="diceside" src="img/d3.png" alt="3面">
+                        </div>
+                        <div class="sidesetB">
+                            <img class="diceside" src="img/d4.png" alt="4面">
+                            <img class="diceside" src="img/d5.png" alt="5面">
+                            <img class="diceside" src="img/d6.png" alt="6面">
+                        </div>
+                    </div>
+                    <div class="diceviewbox">
+                        <div class="sidesetA">
+                            <img class="diceside" src="img/d1.png" alt="1面">
+                            <img class="diceside" src="img/d2.png" alt="2面">
+                            <img class="diceside" src="img/d3.png" alt="3面">
+                        </div>
+                        <div class="sidesetB">
+                            <img class="diceside" src="img/d4.png" alt="4面">
+                            <img class="diceside" src="img/d5.png" alt="5面">
+                            <img class="diceside" src="img/d6.png" alt="6面">
+                        </div>
+                    </div>
+                    <div class="diceviewbox">
+                        <div class="sidesetA">
+                            <img class="diceside" src="img/d1.png" alt="1面">
+                            <img class="diceside" src="img/d2.png" alt="2面">
+                            <img class="diceside" src="img/d3.png" alt="3面">
+                        </div>
+                        <div class="sidesetB">
+                            <img class="diceside" src="img/d4.png" alt="4面">
+                            <img class="diceside" src="img/d5.png" alt="5面">
+                            <img class="diceside" src="img/d6.png" alt="6面">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="Yahtzee.js"></script>
+
+</body>
+</html>
