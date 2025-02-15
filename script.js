@@ -121,6 +121,10 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
             if (rollcheck) return;
             resetchoicedDice();
         }
+        if (event.key === "t") {
+            if (rollcheck) return;
+            allchoicedDice();
+        }
 
         if (event.key === "1") {
             if (dicechoiceenable){
@@ -420,7 +424,17 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         })
         button_disenable();
         resultText.textContent = "リロール or スコア するダイスを選択してください";
-        console.log("すべてのサイコロのロックが解除されました！");
+        console.log("全選択解除");
+    }
+
+    function allchoicedDice() {
+        diceElements.forEach((dice, index) => {
+            choicedDice[index] = true;
+            dice.style.transform = "translateY(-20px)";
+        })
+        button_enable();
+        handcheck();
+        console.log("全選択");
     }
 
     function Diceroll() {
@@ -809,9 +823,11 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         BuffImg3.style.display = "none";
         ticketinPack3.forEach(ticket => {
             ticket.style.display = "none";
+            ticket.style.transform = "translateY(0px)"
         });
         ticketinPack5.forEach(ticket => {
             ticket.style.display = "none";
+            ticket.style.transform = "translateY(0px)"
         });
         coinchek();
     }
