@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
     const buffImages = [
         "img/buff_b.png", "img/buff_r.png"
     ]
-
     
     const Explaincreen = document.getElementById("explainscreen");
     const StageName = document.getElementById("stagename");
