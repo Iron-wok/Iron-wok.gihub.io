@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
     const ticketsPack = document.querySelector(".ticketpackbox");
     const ticketinPack3 = document.querySelectorAll(".ticketinpack3");
     const ticketinPack5 = document.querySelectorAll(".ticketinpack5");
+    const handBuffscoreText = document.getElementById("hand-buffscore");
+    const handBuffmultText = document.getElementById("hand-buffmult");
     const BuffText = document.querySelector(".bufftextset");
     const BuffscoreText = document.querySelector(".buffscore");
     const BuffmultText = document.querySelector(".buffmult");
@@ -95,7 +97,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
     let soldpacks = [false, false, false, false, false, false]; // パックの売り切れ状況
     let choicedDiceinPack = [false, false, false, false, false];
     let choicedTicket = [false, false, false, false, false];
-    let numbers = [];
+    let numbers3 = [];
+    let numbers5 = [];
     let dicechoiceenable = false;
     let coin = 5;
 
@@ -183,6 +186,18 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         if (event.key === "Enter") {
             if (!OKButton.disabled) {
                 stageclear();
+            } else if (choicedDiceinPack != [false,false,false,false,false]) {
+                if (packnumber < 3) {
+                    console.log("Packnumber:" + packnumber);
+                    selectDice();
+                    closepack();
+                }
+            } else if (choicedTicket != [false,false,false,false,false]) {
+                if (packnumber >= 3) {
+                    console.log("Packnumber:" + packnumber);
+                    selectTicket();
+                    closepack();
+                }
             }
         }
         if (event.key === "e") {
@@ -238,7 +253,6 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
                     BuffImg1.style.display = "";
                     openpack(index);
                     dicerollinpack();
-                    console.log(numbers);
                 } else return;
             }
             if (index == 1) {
@@ -247,7 +261,6 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
                     BuffImg2.style.display = "";
                     openpack(index);
                     dicerollinpack();
-                    console.log(numbers);
                 } else return;
             }
             if (index == 2) {
@@ -256,7 +269,6 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
                     BuffImg3.style.display = "";
                     openpack(index);
                     dicerollinpack();
-                    console.log(numbers);
                 } else return;
             }
             if (index == 3) {
@@ -267,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
                     });
                     openpack(index);
                     ticketroll();
-                    console.log(numbers);
+                    console.log(numbers3);
                 } else return;
             }
             if (index == 4) {
@@ -278,7 +290,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
                     });
                     openpack(index);
                     ticketroll();
-                    console.log(numbers);
+                    console.log(numbers5);
                 } else return;
             }
             if (index == 5) {
@@ -314,8 +326,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
             ticket.style.transform = "translateY(-40px)";
             decideBuffButton.disabled = false;
             decideBuffButton.style.opacity = "1.0";
-            BuffscoreText.textContent = "+" + plusscore[numbers[index]];
-            BuffmultText.textContent = "+" + plusmult[numbers[index]];
+            BuffscoreText.textContent = "+" + plusscore[numbers3[index]];
+            BuffmultText.textContent = "+" + plusmult[numbers3[index]];
         });
     });
 
@@ -330,8 +342,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
             ticket.style.transform = "translateY(-40px)";
             decideBuffButton.disabled = false;
             decideBuffButton.style.opacity = "1.0";
-            BuffscoreText.textContent = "+" + plusscore[numbers[index]];
-            BuffmultText.textContent = "+" + plusmult[numbers[index]];
+            BuffscoreText.textContent = "+" + plusscore[numbers5[index]];
+            BuffmultText.textContent = "+" + plusmult[numbers5[index]];
         });
     });
 
@@ -342,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
             selectDice();
         }
         else if (packnumber >= 3) {
+            console.log("Packnumber:" + packnumber);
             selectTicket();
         } 
         closepack();
@@ -759,24 +772,26 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         Sidechange.src = diceImages[sidecolor][sidenum];
         BuffImg3.src = diceImages[sidecolor][sidenum];
 
-        numbers = [0, 1, 2, 3, 4, 5, 6];
+        numbers3 = [0, 1, 2, 3, 4, 5, 6];
         for (i = 6; i > 0; i--) {
             let j = Math.floor(Math.random()*7);
-            [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+            [numbers3[i], numbers3[j]] = [numbers3[j], numbers3[i]];
         }
         for (i = 0; i < 3; i++) {
-            ticketinPack3[i].src = ticketImages[numbers[i]];
+            ticketinPack3[i].src = ticketImages[numbers3[i]];
         }
-        numbers = [0, 1, 2, 3, 4, 5, 6];
+        numbers5 = [0, 1, 2, 3, 4, 5, 6];
         for (i = 6; i > 0; i--) {
             let j = Math.floor(Math.random()*7);
-            [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+            [numbers5[i], numbers5[j]] = [numbers5[j], numbers5[i]];
         }
         for (i = 0; i < 5; i++) {
-            ticketinPack5[i].src = ticketImages[numbers[i]];
+            ticketinPack5[i].src = ticketImages[numbers5[i]];
         }
         ticketnum = Math.floor(Math.random()*7);
         Ticket.src = ticketImages[ticketnum];
+        handBuffscoreText.textContent =  "+" + plusscore[ticketnum];
+        handBuffmultText.textContent =  "+" + plusmult[ticketnum];
     }
 
     function openshop() {
@@ -815,6 +830,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         PackOpenContainer.style.display = "none";
         SkipButton.style.opacity = "1.0";
         SkipButton.disabled = false;
+        dicechoiceenable = false;
         diceinPack.forEach((dice,index) => {
             choicedDiceinPack[index] = false;
             dice.style.transform = "translateY(0px)"
@@ -943,7 +959,11 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         let f
         choicedTicket.forEach((ticket, index) => {
             if (ticket) {
-                f = numbers[index];
+                if (packnumber == 3) {
+                    f = numbers3[index];
+                } else if (packnumber == 4) {
+                    f = numbers5[index];
+                }
                 console.log(f);
             }
         });
