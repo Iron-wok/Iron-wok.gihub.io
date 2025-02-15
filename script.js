@@ -434,6 +434,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         })
         button_enable();
         handcheck();
+        Levelcheck();
         console.log("全選択");
     }
 
