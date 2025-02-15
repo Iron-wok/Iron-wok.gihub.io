@@ -706,6 +706,48 @@ img {
     justify-content: center;
     object-fit: cover;
 }
+#hand-tag {
+    text-align: center;
+    justify-content: center;
+    display: block;
+    height: 130px;
+    width: 53px;
+}
+#hand-buff {
+    text-align: center;
+    justify-content: center;
+    display: block;
+    height: 60px;
+    width: 53px;
+    margin: 0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+#hand-buffscore {
+    height: 26px;
+    line-height: 26px;
+    width: 41px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    color: aliceblue;
+    border: 2px solid aliceblue;
+    border-radius: 4px;
+    background-color: blue;
+}
+#hand-buffmult {
+    height: 26px;
+    line-height: 26px;
+    width: 41px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    color: aliceblue;
+    border: 2px solid aliceblue;
+    border-radius: 4px;
+    background-color: red;
+}
 
 
 .openpackcontainer {
