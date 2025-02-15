@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこまれてから動く
     const diceImages = [
-        ["img/d1.png", "img/d2.png", "img/d3.png", "img/d4.png", "img/d5.png", "img/d6.png"],
-        ["img/b1.png", "img/b2.png", "img/b3.png", "img/b4.png", "img/b5.png", "img/b6.png"],
-        ["img/r1.png", "img/r2.png", "img/r3.png", "img/r4.png", "img/r5.png", "img/r6.png"]
+        ["d1.png", "d2.png", "d3.png", "d4.png", "d5.png", /d6.png"],
+        ["b1.png", "b2.png", "b3.png", "b4.png", "b5.png", "b6.png"],
+        ["r1.png", "r2.png", "r3.png", "r4.png", "r5.png", "r6.png"]
     ];
     const ticketImages = [
-        "img/ticket_yahtzee.png", "img/ticket_4dice.png", "img/ticket_fullhouse.png", "img/ticket_3dice.png",
-        "img/ticket_lstraight.png", "img/ticket_sstraight.png", "img/ticket_choice.png"
+        "ticket_yahtzee.png", "ticket_4dice.png", "ticket_fullhouse.png", "ticket_3dice.png",
+        "ticket_lstraight.png", "ticket_sstraight.png", "ticket_choice.png"
     ]
     const buffImages = [
-        "img/buff_b.png", "img/buff_r.png"
+        "buff_b.png", "buff_r.png"
     ]
 
     
