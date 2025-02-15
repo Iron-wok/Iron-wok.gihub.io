@@ -2,34 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ダイスビルド型ヨット ゲーム</title>
-    <link rel="prelaod" helf="img/d1.png" as="image">
-    <link rel="prelaod" helf="img/d2.png" as="image">
-    <link rel="prelaod" helf="img/d3.png" as="image">
-    <link rel="prelaod" helf="img/d4.png" as="image">
-    <link rel="prelaod" helf="img/d5.png" as="image">
-    <link rel="prelaod" helf="img/d6.png" as="image">
-    <link rel="prelaod" helf="img/b1.png" as="image">
-    <link rel="prelaod" helf="img/b2.png" as="image">
-    <link rel="prelaod" helf="img/b3.png" as="image">
-    <link rel="prelaod" helf="img/b4.png" as="image">
-    <link rel="prelaod" helf="img/b5.png" as="image">
-    <link rel="prelaod" helf="img/b6.png" as="image">
-    <link rel="prelaod" helf="img/r1.png" as="image">
-    <link rel="prelaod" helf="img/r2.png" as="image">
-    <link rel="prelaod" helf="img/r3.png" as="image">
-    <link rel="prelaod" helf="img/r4.png" as="image">
-    <link rel="prelaod" helf="img/r5.png" as="image">
-    <link rel="prelaod" helf="img/r6.png" as="image">
-    <link rel="prelaod" helf="img/buff_b.png" as="image">
-    <link rel="prelaod" helf="img/buff_r.png" as="image">
-    <link rel="prelaod" helf="img/ticket_yahtzee.png" as="image">
-    <link rel="prelaod" helf="img/ticket_4dice.png" as="image">
-    <link rel="prelaod" helf="img/ticket_fullhouse.png" as="image">
-    <link rel="prelaod" helf="img/ticket_3dice.png" as="image">
-    <link rel="prelaod" helf="img/ticket_lstraight.png" as="image">
-    <link rel="prelaod" helf="img/ticket_sstraight.png" as="image">
-    <link rel="prelaod" helf="img/ticket_choice.png" as="image">
+    <title>ダイスビルド型ヨットゲーム</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -276,15 +249,20 @@
                         <img class="diceinpack" src="img/d1.png" alt="サイコロ">
                     </div>
                     <div class="ticketpackbox">
-                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
-                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
-                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
-                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
-                        <img class="ticketinpack" src="img/ticket_yahtzee.png" alt="チケット">
+                        <img class="ticketinpack3" src="img/ticket_yahtzee.png" alt="チケット3">
+                        <img class="ticketinpack3" src="img/ticket_yahtzee.png" alt="チケット3">
+                        <img class="ticketinpack3" src="img/ticket_yahtzee.png" alt="チケット3">
+                        <img class="ticketinpack5" src="img/ticket_yahtzee.png" alt="チケット5">
+                        <img class="ticketinpack5" src="img/ticket_yahtzee.png" alt="チケット5">
+                        <img class="ticketinpack5" src="img/ticket_yahtzee.png" alt="チケット5">
+                        <img class="ticketinpack5" src="img/ticket_yahtzee.png" alt="チケット5">
+                        <img class="ticketinpack5" src="img/ticket_yahtzee.png" alt="チケット5">
                     </div>
                     <div class="buttoninpackbox">
                         <button class="skippackbutton">スキップ</button>
-                        <img class="buffimg" src="img/d1.png" alt="強化法">
+                        <img id="buffimg1" src="img/buff_b.png" alt="色強化">
+                        <img id="buffimg2" src="img/d1.png" alt="数値変更">
+                        <img id="buffimg3" src="img/d1.png" alt="面交換">
                         <div class="bufftextset">
                             <p class="buffscore">+</p>
                             <p class="buffmult">+</p>
@@ -365,7 +343,11 @@
         </div>
     </div>
     
-    <script src="script.js"></script>
+
+
+
+    <!-- 外部JSファイルを読み込む -->
+    <script src="dice.js"></script>
 
 </body>
 </html>

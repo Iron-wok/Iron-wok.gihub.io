@@ -757,8 +757,20 @@ img {
     width: 566px;
     background-color: aliceblue;
 }
-.ticketinpack {
+.ticketinpack3 {
     cursor: pointer;
+    display: flex;
+    height: 135px;
+    width: 68px;
+    margin: 21px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    justify-content: center;
+    object-fit: cover;
+}
+.ticketinpack5 {
+    cursor: pointer;
+    display: flex;
     height: 135px;
     width: 68px;
     margin: 21px;
@@ -788,7 +800,20 @@ img {
     border-color: aliceblue;
     background-color: lightgray;
 }
-.buffimg {
+#buffimg1 {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+#buffimg2 {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+#buffimg3 {
+    display: flex;
     height: 100px;
     width: 100px;
     margin: auto;
