@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
     const buffImages = [
         "img/buff_b.png", "img/buff_r.png"
     ]
+
     
     const Explaincreen = document.getElementById("explainscreen");
     const StageName = document.getElementById("stagename");
@@ -731,7 +732,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         plusmult = [3, 2, 1, 1, 2, 1, 1];
         scoreLv = [50, 30, 25, 15, 40, 25, 5];
         multLv = [5, 4, 3, 2, 4, 3, 1];
-        coin = 5
+        coin = 5;
+        reserLevel();
 
         stagestart();
     }
@@ -742,6 +744,14 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         });
     }
 
+    function reserLevel() {
+        TableLvs.forEach(index => {
+            TableLvs[index].textContent = handLv[index];
+            Tablescores[index].textContent = scoreLv[index];
+            Tablemults[index].textContent = multLv[index];
+        });
+    }
+    
     function quitGame() {
         stage = 1;
         resetchoicedDice();
@@ -754,7 +764,8 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         plusmult = [3, 2, 1, 1, 2, 1, 1];
         scoreLv = [50, 30, 25, 15, 40, 25, 5];
         multLv = [5, 4, 3, 2, 4, 3, 1];
-        coin = 5
+        coin = 5;
+        resetLevel();
 
         OpenWindow();
     }
