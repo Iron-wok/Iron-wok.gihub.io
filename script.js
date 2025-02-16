@@ -745,13 +745,13 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
     }
 
     function reserLevel() {
-        TableLvs.forEach(index => {
-            TableLvs[index].textContent = handLv[index];
-            Tablescores[index].textContent = scoreLv[index];
-            Tablemults[index].textContent = multLv[index];
-        });
+        for (i=0;i<7;i++) {
+            TableLvs[i].textContent = handLv[i];
+            Tablescores[i].textContent = scoreLv[i];
+            Tablemults[i].textContent = multLv[i];
+        }
     }
-    
+
     function quitGame() {
         stage = 1;
         resetchoicedDice();
