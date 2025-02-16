@@ -733,7 +733,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         scoreLv = [50, 30, 25, 15, 40, 25, 5];
         multLv = [5, 4, 3, 2, 4, 3, 1];
         coin = 5;
-        reserLevel();
+        resetLevel();
 
         stagestart();
     }
@@ -744,7 +744,7 @@ document.addEventListener("DOMContentLoaded", function() { // HTMLがよみこ�
         });
     }
 
-    function reserLevel() {
+    function resetLevel() {
         for (i=0;i<7;i++) {
             TableLvs[i].textContent = handLv[i];
             Tablescores[i].textContent = scoreLv[i];
